@@ -7,6 +7,7 @@
     "@vitejs/plugin-react": "^6.0.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.0",
     "react-scripts": "^5.0.1",
     "vite": "^8.0.16"
   },
@@ -24,8 +25,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest",
-    "predeploy": "yarn build",
+    "test": "vitest run",
+    "predeploy": "yarn test;yarn build",
     "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {

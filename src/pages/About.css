@@ -1,0 +1,34 @@
+.About section {
+  margin-bottom: 50px;
+}
+
+.professional-summary p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 0;
+}
+
+.core-competencies ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.core-competencies li {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+  padding: 15px 20px;
+  border-left: 4px solid #0066cc;
+  border-radius: 4px;
+  color: #2d3748;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.core-competencies li:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+}

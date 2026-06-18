@@ -5,6 +5,12 @@ import App from './App';
 
 test('renders linkedin link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Deep Pancholi LinkedIn/i);
+  const linkElement = screen.getByText(/LinkedIn/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders About link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/About/i);
   expect(linkElement).toBeInTheDocument();
 });
