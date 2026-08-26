@@ -1,13 +1,16 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import About from './pages/About';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Resume from './pages/Resume';
+import Contact from './pages/Contact';
+
 function App() {
   return (
 <Router>
 <div className="App">
       <header className="App-header">
         <nav className="App-nav">
-          <Link to="/about" className="App-nav-link">About</Link>
+          <Link to="/resume" className="App-nav-link">Resume</Link>
+          <Link to="/contact" className="App-nav-link">Contact</Link>
           <a
           className="App-nav-link"
           href="https://www.linkedin.com/in/deeppancholi/"
@@ -19,7 +22,8 @@ function App() {
         </nav>
       </header>
       <Routes>
-        <Route path="/about" element={<About />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
     </Router>
