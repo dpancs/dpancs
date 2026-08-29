@@ -48,6 +48,9 @@
 .blog-post-body { padding-top: 2.25rem; color: #334155; font-family: Georgia, 'Times New Roman', serif; font-size: 1.12rem; line-height: 1.8; }
 .blog-post-body p { margin: 0 0 1.35rem; }
 .blog-post-body .blog-subheading { margin-top: 2.25rem; color: #111827; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.45rem; font-weight: 700; line-height: 1.2; }
+.blog-post-body ol { margin: 0 0 1.35rem; padding-left: 1.5rem; }
+.blog-post-body li { margin-bottom: .8rem; padding-left: .35rem; }
+.blog-post-body blockquote { margin: 0 0 1.35rem; padding-left: 1.25rem; border-left: 3px solid #8fb5d8; color: #64748b; font-style: italic; }
 .blog-post-body pre { overflow-x: auto; margin: 1.5rem 0; padding: 1.25rem; border-radius: 12px; background: #152238; color: #dbeafe; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .84rem; line-height: 1.6; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
