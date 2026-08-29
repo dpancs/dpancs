@@ -8,19 +8,32 @@ const posts = [
   {
     slug: 'why-games-expire-consumer-rights-in-gaming',
     title: 'Why Games Expire: Consumer Rights in Gaming',
-    date: 'January 16, 2025',
+    date: 'January 16, 2026',
     category: 'Technology',
     tags: ['Gaming', 'Consumer rights', 'Nintendo', 'PlayStation', 'Xbox'],
     excerpt: 'Modern games can disappear when the servers behind them shut down. A look at digital ownership, subscriptions, and why game preservation matters.',
     body: [
+      { type: 'heading', text: 'WHY EA WHY?' },
       'The trend of games expiring after a few years, particularly evident in titles like EA’s FIFA franchise, raises significant concerns regarding consumer rights and ownership in gaming. Unlike older games, which players could purchase and enjoy indefinitely, many modern titles now rely on servers and online services that may not last as long as the games themselves.',
-      'This last year I lost access to continue playing FIFA 23 as the EA servers were shut off and all they gave users was the option to purchase the new version of the game for a $10 discount.',
-      'The Reality of Digital Ownership',
-      'Modern games often require a constant online connection or rely on servers that can be shut down. When these services are discontinued, players lose access, even for games they have purchased. Games are also increasingly transitioning to subscription services, where players pay regularly for access rather than owning a copy.',
-      'Many contemporary titles monetize through microtransactions and downloadable content. This strategy can make the base game feel incomplete and puts pressure on players to spend more to enjoy the full experience.',
-      'Nostalgia for Physical Media',
-      'Previously, when players bought a game, they owned a physical copy that could be played indefinitely. That sense of ownership is diminishing in an era of digital downloads. Older games are often archived and remain playable due to a physical media presence, while modern games without local servers or single-player modes face obsolescence.',
-      'The expiration of games and the loss of ownership rights reflect broader changes in the gaming industry. Advocating for consumer rights and greater transparency about service lifespans can help reshape the future of gaming.',
+      'This last year I lost access to continue playing FIFA 23 as the EA servers were shutoff and all they gave users was option to purchase the new version of the game for 10$ discount.',
+      { type: 'heading', text: 'The Reality of Digital Ownership' },
+      { type: 'list', items: [
+        'Limited Access: Modern games often require a constant online connection or rely on servers that can be shut down. When these services are discontinued, players lose access, even for games they’ve purchased.',
+        'Subscription Models: Games are increasingly transitioning to subscription services, where players pay regularly for access rather than owning a copy. While this might provide a large library of games, it also means that access could end if a subscription is canceled.',
+        'Microtransactions and DLC: Many contemporary games, including FIFA, monetize through microtransactions and downloadable content (DLC). This strategy can make the base game feel incomplete and puts pressure on players to spend more to enjoy the full experience.',
+      ] },
+      { type: 'heading', text: 'Nostalgia for Physical Media' },
+      { type: 'list', items: [
+        'Ownership Rights: Previously, when players bought a game, they owned a physical copy that could be played indefinitely. This sense of ownership is diminishing in an era of digital downloads.',
+        'Game Preservation: Older games are often archived and remain playable due to a physical media presence. Once servers are taken offline, many modern titles, especially those without local servers or single-player modes, face obsolescence.',
+      ] },
+      { type: 'heading', text: 'Financial Implications for Consumers' },
+      { type: 'list', items: [
+        'Recurring Costs: As games become increasingly reliant on online services, players may find themselves needing to invest continually in both initial purchases and ongoing service fees, which can add up over time.',
+        'Value Perception: The financial model changes how players perceive value. With traditional ownership, the perception of value was tied to a one-time purchase. Now, players may feel they need to spend continually to get enjoyment from their games.',
+      ] },
+      { type: 'heading', text: 'Conclusion' },
+      'The expiration of games and the loss of ownership rights reflect broader changes in the gaming industry. Advocating for consumer rights and greater transparency regarding service lifespans can help reshape the future of gaming, ensuring players can enjoy their favorite titles without the looming threat of expiration.',
     ],
   },
   {
@@ -290,11 +303,26 @@ function BlogPost() {
         </div>
       </header>
       <article className="blog-post-body">
-        {post.body.map((paragraph, index) => (
-          paragraph.includes('\n')
-            ? <pre key={`${post.slug}-${index}`}><code>{paragraph}</code></pre>
-            : <p key={`${post.slug}-${index}`} className={paragraph.length < 45 ? 'blog-subheading' : ''}>{paragraph}</p>
-        ))}
+        {post.body.map((block, index) => {
+          if (typeof block !== 'string') {
+            if (block.type === 'list') {
+              return (
+                <ol key={`${post.slug}-${index}`}>
+                  {block.items.map((item) => {
+                    const [label, ...description] = item.split(': ');
+                    return <li key={item}><strong>{label}:</strong>{` ${description.join(': ')}`}</li>;
+                  })}
+                </ol>
+              );
+            }
+
+            return <p key={`${post.slug}-${index}`} className="blog-subheading">{block.text}</p>;
+          }
+
+          return block.includes('\n')
+            ? <pre key={`${post.slug}-${index}`}><code>{block}</code></pre>
+            : <p key={`${post.slug}-${index}`}>{block}</p>;
+        })}
       </article>
     </main>
   );
