@@ -1,5 +1,5 @@
 import { beforeEach, afterEach, test, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'; // Generates the .toBeInTheDocument helper
 import App from './App';
 
@@ -31,4 +31,21 @@ test('renders the contact page form fields on the contact route', () => {
   expect(screen.getByLabelText(/subject/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/details/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/your contact info/i)).toBeInTheDocument();
+});
+
+test('generates a UUID v4 on the utilities route', async () => {
+  window.location.hash = '#/utilities';
+
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: /utilities/i })).toBeInTheDocument();
+  const button = screen.getByRole('button', { name: /generate uuid/i });
+  const output = screen.getByRole('status', { name: /generated uuid/i });
+
+  expect(output).toHaveTextContent('Your UUID will appear here');
+  fireEvent.click(button);
+
+  expect(output.textContent).toMatch(
+    /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
+  );
 });
