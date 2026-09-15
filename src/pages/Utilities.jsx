@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Utilities.css';
+import { SITE, useSeo } from '../seo';
 
 function createUuidV4() {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
@@ -26,6 +27,12 @@ function createUuidV4() {
 
 function Utilities() {
   const [uuid, setUuid] = useState('');
+  useSeo({
+    title: 'UUID Generator & Developer Utilities | Deep Pancholi',
+    description:
+      'Free developer utilities by Deep Pancholi: generate UUID v4 identifiers and more handy tools for everyday software engineering tasks.',
+    path: '/utilities',
+  });
 
   return (
     <main className="utilities-page">

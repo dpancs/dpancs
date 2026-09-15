@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import { SITE, useSeo } from '../seo';
 export default function Contact() {
+  useSeo({
+    title: 'Contact | Deep Pancholi',
+    description:
+      'Get in touch with Deep Pancholi, Senior Software Engineering Manager writing about technology, engineering, and life. Send a message here.',
+    path: '/contact',
+  });
+
   // State to track if the form was successfully submitted
   const [submitted, setSubmitted] = useState(false);
   // State to track if the iframe loaded after a click

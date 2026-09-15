@@ -1,10 +1,12 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import './Blog.css';
+import { SITE, toIsoDate, useSeo } from '../seo';
 
 // Add migrated posts here. Keeping posts as data makes it easy to paste in
 // the remaining WordPress archive without changing the page layout.
-const posts = [
+// When adding a post, also add its URL to public/sitemap.xml.
+export const posts = [
   {
     slug: 'why-games-expire-consumer-rights-in-gaming',
     title: 'Why Games Expire: Consumer Rights in Gaming',
@@ -235,6 +237,23 @@ const categories = ['All', ...new Set(posts.map((post) => post.category))];
 function BlogIndex() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [query, setQuery] = useState('');
+  const { pathname } = useLocation();
+
+  // / and /blog render the same archive; canonicalize /blog to the homepage.
+  const canonicalPath = pathname === '/blog' ? '/' : pathname;
+  useSeo({
+    title: 'Deep Pancholi — Notes on technology, engineering, and life',
+    description: SITE.description,
+    path: canonicalPath,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: SITE.name,
+      url: SITE.url,
+      description: SITE.description,
+      author: { '@type': 'Person', name: SITE.author },
+    },
+  });
 
   const filteredPosts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -326,6 +345,26 @@ function BlogIndex() {
 function BlogPost() {
   const { slug } = useParams();
   const post = posts.find((candidate) => candidate.slug === slug);
+  const path = `/blog/${slug}`;
+
+  useSeo({
+    title: post ? `${post.title} | Deep Pancholi` : 'Post not found | Deep Pancholi',
+    description: post ? post.excerpt : SITE.description,
+    path,
+    type: 'article',
+    publishedTime: post ? toIsoDate(post.date) : undefined,
+    schema: post
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: toIsoDate(post.date),
+          author: { '@type': 'Person', name: SITE.author },
+          mainEntityOfPage: `${SITE.url}${path}`,
+        }
+      : undefined,
+  });
 
   if (!post) {
     return (

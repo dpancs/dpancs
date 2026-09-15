@@ -18,7 +18,7 @@ Use Yarn, consistent with the checked-in `yarn.lock`:
 
 ## Coding Style & Naming Conventions
 
-Use two-space indentation, semicolons, and single quotes, matching the existing JSX and JavaScript. Use PascalCase for React component files and component names (`Utilities.jsx`), and keep each page’s stylesheet alongside it (`Utilities.css`). Use descriptive camelCase for variables and functions. Keep route definitions in `src/App.jsx`; use `HashRouter`-compatible links for internal navigation.
+Use two-space indentation, semicolons, and single quotes, matching the existing JSX and JavaScript. Use PascalCase for React component files and component names (`Utilities.jsx`), and keep each page’s stylesheet alongside it (`Utilities.css`). Use descriptive camelCase for variables and functions. Keep route definitions in `src/App.jsx`; use `BrowserRouter` paths for internal navigation. Per-route SEO (title, meta description, canonical, Open Graph, JSON-LD) lives in `src/seo.js` via the `useSeo` hook; update `public/sitemap.xml` when adding or renaming routes or posts.
 
 ## Testing Guidelines
 
@@ -30,4 +30,4 @@ Use short, imperative commit subjects describing one change, following the exist
 
 ## Configuration & Deployment Notes
 
-Keep static deployment files in `public/`, including `CNAME`. Do not commit secrets or generated `dist/` output. Verify hash-based routes (`#/blog`, `#/resume`, `#/contact`, and `#/utilities`) after navigation changes.
+Keep static deployment files in `public/`, including `CNAME`. Do not commit secrets or generated `dist/` output. Verify clean-URL routes (`/blog`, `/resume`, `/contact`, and `/utilities`) after navigation changes; `public/404.html` preserves deep links on GitHub Pages, which has no server-side rewrites.
