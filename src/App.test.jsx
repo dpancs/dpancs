@@ -3,12 +3,16 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'; // Generates the .toBeInTheDocument helper
 import App from './App';
 
+function navigateTo(path) {
+  window.history.pushState({}, '', path);
+}
+
 beforeEach(() => {
-  window.location.hash = '#/resume';
+  navigateTo('/resume');
 });
 
 afterEach(() => {
-  window.location.hash = '';
+  navigateTo('/');
 });
 
 test('renders linkedin link', () => {
@@ -23,7 +27,7 @@ test('renders Resume link', () => {
 });
 
 test('renders the contact page form fields on the contact route', () => {
-  window.location.hash = '#/contact';
+  navigateTo('/contact');
 
   render(<App />);
 
@@ -34,7 +38,7 @@ test('renders the contact page form fields on the contact route', () => {
 });
 
 test('generates a UUID v4 on the utilities route', async () => {
-  window.location.hash = '#/utilities';
+  navigateTo('/utilities');
 
   render(<App />);
 
@@ -47,5 +51,29 @@ test('generates a UUID v4 on the utilities route', async () => {
 
   expect(output.textContent).toMatch(
     /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
+  );
+});
+
+test('renders the blog post matching the slug route', () => {
+  navigateTo('/blog/why-games-expire-consumer-rights-in-gaming');
+
+  render(<App />);
+
+  expect(
+    screen.getByRole('heading', { name: /why games expire: consumer rights in gaming/i }),
+  ).toBeInTheDocument();
+});
+
+test('sets a post-specific document title on the blog post route', () => {
+  navigateTo('/blog/why-games-expire-consumer-rights-in-gaming');
+
+  render(<App />);
+
+  expect(document.title).toBe('Why Games Expire: Consumer Rights in Gaming | Deep Pancholi');
+  expect(document.querySelector('meta[name="description"]').getAttribute('content')).toContain(
+    'Modern games can disappear',
+  );
+  expect(document.querySelector('link[rel="canonical"]').getAttribute('href')).toBe(
+    'https://deepintheai.com/blog/why-games-expire-consumer-rights-in-gaming',
   );
 });

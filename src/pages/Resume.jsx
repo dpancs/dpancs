@@ -1,4 +1,5 @@
 import './Resume.css';
+import { SITE, useSeo } from '../seo';
 
 const experience = [
   {
@@ -75,6 +76,13 @@ const skills = {
 };
 
 function Resume() {
+  useSeo({
+    title: 'Resume | Deep Pancholi',
+    description:
+      'Resume of Deep Pancholi, Senior Software Engineering Manager at Lyra Health. Engineering leadership across Intuit, startups, full-stack systems, and GenAI.',
+    path: '/resume',
+  });
+
   return (
     <main className="resume-page">
       <section className="resume-hero">
