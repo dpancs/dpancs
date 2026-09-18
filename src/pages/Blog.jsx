@@ -130,6 +130,7 @@ const originalPosts = [
     tags: ['Travel', 'Air India', 'Customer service'],
     excerpt: 'A frustrating flight experience turns into a broader question about service, safety, and what passengers should expect from a national carrier.',
     body: [
+      { type: 'image', src: '/images/migrated/why-air-india-why/air-india-logo.jpg', alt: 'Air India logo from airindia.com' },
       'My wife and daughter had to get on a flight to Ahmedabad from San Francisco recently. I jumped online and the quickest flight to India was Air India flight that would fly them from SFO to Delhi and eventually to Ahmedabad. I was glad we got it on Air India as the last time I flew the carrier, it was amazing service and great aircraft.',
       'They flew Air India and I cannot resist sharing my painful experience aboard the AI 174 on November 20, 2019 with everyone.',
       'After take off my wife realized that my daughter’s entertainment console was not working. She heard many people asking for refunds and fighting over it but it was OK as she thought my daughter can use her screen. There were limited movies and the collection was super outdated so my wife was not too interested in the screen. Later, my wife realized that for the working screen, TV remote as well as headphone port did not work.',
@@ -193,7 +194,9 @@ const originalPosts = [
       'In future, if the call volumes increase beyond a certain point, we can expose an endpoint from within our app to handle the response for call forwarding.',
       { type: 'heading', text: 'TwiML Bins' },
       'For simple call forwarding with no scheduled switch, Twilio provides a nice XML like language called TwiML (Twilio Markup Language). When we port numbers to Twilio, twilio provides us with the ability to call external URL using TwiML (Twilio Markup Language) or webhooks.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/twilio-1.png', alt: 'twilio_1' },
       'If you navigate to Phone numbers and purchase a number, you can setup simple call forwarding at all times by clicking on the + sign next to TwiML dropdown which will take you to the screen below and allow you to configure the call forwarding to number 1-123-456-7890 in my sample case.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/twilio-2.png', alt: 'twilio2' },
       'For more information on the TwiML syntax for the Dial verb, you can navigate to the Dial Verb API. For our requirement to allow call forwarding for specific hours, however, this approach will not work. TwiML doesn’t allow complex conditional call forwarding. To allow for that, we need to host our own webhook code online.',
       { type: 'heading', text: 'AWS Lambda' },
       'AWS Lambda is a compute service that allows user to upload code that will be run as a service on AWS infrastructure. In our case, we want to trigger the execution when we have a call event on any of the twilio numbers. I am using Node.js for the project because it has a good support community for Lambda on AWS. What we want to do is check for the time of the day when the call is generated and based on that respond with a different TwiML to forward call.',
@@ -206,15 +209,23 @@ const originalPosts = [
       { type: 'heading', text: 'Setting up AWS Lambda' },
       'Once you login to the AWS management console, navigate to Lambda under compute section. On clicking the create a new function link, you will be navigated to blueprint page. In this case, select runtime of ‘Node.js 4.3’ and filter for ‘twilio-simple-blueprint’.',
       'This will take you to the configure triggers page. We want our trigger to be an HTTP POST call from Twilio and we will be using API Gateway to handle the event trigger. Configure the service as following figure shows.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/trigger.png', alt: 'trigger' },
       'Lastly, we get to the configure function page. Name your function the same name as the .js file which will be the entry point to the Node.js code and that contains the exports.handler function. Modify the handler on the config UI to be twilioCallForwarding.handler. As we are not going to access any other AWS data (RDS, S3, etc) we don’t need to define a VPC for the function.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/function.png', alt: 'function' },
       'Notice that I have used an existing role that I had created previously for another project. This role has policies defined that allow access to AWS Lambda, Cloudwatch, API gateway and S3 bucket operations. Upload a zip named twilioCallForwarding.zip which contains the .javascript source files and all necessary node_modules and head onto the next review screen. Once you review the function, we can proceed to test the function and verify results.',
       { type: 'heading', text: 'Setting up API gateway' },
       'Proceed to Amazon API Gateway service and click on Create API and enter values as below. This will create an API for us that we need to add methods/endpoints to. Amazon refers to them as resources. Click on Actions dropdown and create a New Child Resource with name CallForwarding having resource path of callForwarding. Select the newly created resource and add a new method to it for POST operation.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/api-1.png', alt: 'api1' },
       'Next, we will setup the POST method to use our Lambda function located in us-west-2 region. This will take us to a screen with Method execution flow outlined. Click on the Integration Request and open the Body mapping templates. Twilio uses form-urlencoded type to send parameters across which include information such as From number, to number, region of call origination, destination of call, state of the call, etc.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/updated-api.png', alt: 'updatedapi' },
       'Add a mapping template for type application/x-www-form-urlencoded. Modify the Method Request to be open for everyone so as to allow everyone access to the API without the need for API key. This will allow Twilio to call our Endpoint from outside the amazon network.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/api-3.png', alt: 'api3' },
       'Next, navigate into the Method Response section and add a Response Model to allow for application/xml response as Twilio expects xml response from our service to redirect calls. Don’t worry about the response headers as they will be set automatically later on.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/api-4.png', alt: 'api4' },
       'Lastly, we need to configure the Integration Response section and add Body Mapping Template that will return application/json with following template. Now navigate back to the method execution screen and click on our resource method. From the Actions dropdown, select Enable CORS and test the API endpoint.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/api-5.png', alt: 'api5' },
       'As a final step, we need to set the URL provided by the API gateway in the Twilio webhook section for phone numbers as shown in the diagram below. Now calling this Twilio number will forward calls depending on the time of the day.',
+      { type: 'image', src: '/images/migrated/scheduled-call-forwarding-with-twilio-aws-lambda-api-gateway/final-screen.png', alt: 'screen-shot-2016-10-17-at-10-48-43-pm' },
     ],
   },
   {
@@ -416,6 +427,28 @@ function BlogPost() {
 
             if (block.type === 'quote') {
               return <blockquote key={`${post.slug}-${index}`}>{block.text}</blockquote>;
+            }
+
+            if (block.type === 'gallery') {
+              return (
+                <div key={`${post.slug}-${index}`} className="post-gallery">
+                  {block.images.map((image) => (
+                    <figure key={image.src}>
+                      <img src={image.src} alt={image.alt} loading="lazy" />
+                      <figcaption>{image.alt}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              );
+            }
+
+            if (block.type === 'image') {
+              return (
+                <figure key={`${post.slug}-${index}`} className="post-image">
+                  <img src={block.src} alt={block.alt} loading="lazy" />
+                  {block.alt && <figcaption>{block.alt}</figcaption>}
+                </figure>
+              );
             }
 
             return <p key={`${post.slug}-${index}`} className="blog-subheading">{block.text}</p>;

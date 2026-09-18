@@ -9,7 +9,15 @@ const migratedPosts = [
     ],
     "excerpt": "With sunny summer days around in the month of June, a friend of mine decided to arrange for white water rafting trip. Having never done it before, it seemed like a really swell idea and…",
     "body": [
-      "[Image: Into the deep] Into the deep [Image: We survived] We survived [Image: Phew!!] Phew!! [Image: The meat grinder] The meat grinder",
+      {
+        "type": "gallery",
+        "images": [
+          { "src": "/images/white-water-rafting/into-the-deep.jpg", "alt": "Into the deep" },
+          { "src": "/images/white-water-rafting/the-meat-grinder.jpg", "alt": "The meat grinder" },
+          { "src": "/images/white-water-rafting/we-survived.jpg", "alt": "We survived" },
+          { "src": "/images/white-water-rafting/phew.jpg", "alt": "Phew!!" }
+        ]
+      },
       "With sunny summer days around in the month of June, a friend of mine decided to arrange for white water rafting trip. Having never done it before, it seemed like a really swell idea and I agreed to do it on a Saturday morning.",
       "We drove to Lotus camp near Placerville, CA early in the morning from San Jose. The company that provided us services for the day was Action Whitewater Adventures. Our guide was a cheerful Costa Rican named Marcello. We had opted for a full day river and that meant rowing for nearly 3 hours at a stretch. The water was really pleasant and the second part of the river contains some really cool Level 3 rapids. We had fun the whole day with shoting and screaming and made some friends for the duration of the day who were on another raft but with the same company. Groupon keeps giving deals for rafting and do keep an eye out for it as a full day of rafting, also including lunch, was about 90$.",
       "At the end of the trip, Action Whitewater Adventures allows you to purchase pictures from the rapids for around 50$ for 1 rapid, 75 for 2 rapids and 100$ if you want to purchase all pictures. There are some independent photographers around who charge a bit less than AWA, one example being Sierra Nevada Pictures. Make sure to apply tons of waterproof sunscreen when you go because you will be mostly under the UV rays of sun and I had a severe case of sunburn on my knees.",
@@ -84,7 +92,7 @@ const migratedPosts = [
     ],
     "excerpt": "I moved to T-mobile last year and apart from occasional glitches, the service is good for what you pay. However, last week we split our family plan into two separate plans. I started…",
     "body": [
-      "[Image: Capture]",
+      { "type": "image", "src": "/images/migrated/t-mobile-torture/capture.png", "alt": "Capture" },
       "I moved to T-mobile last year and apart from occasional glitches, the service is good for what you pay. However, last week we split our family plan into two separate plans. I started handling about 7 lines and my friend manages the other 5. I had a few friends travelling outside the country when we made the change. 2 days after making the switch under my name, all accounts under my name suddenly got suspended!",
       "Cellular technology controls almost everything we do nowadays, ranging from checking emails, streaming radio while driving, watching a show, navigating using Google maps, etc. My wife was travelling on business and with the service suspended, there was no way for us to communicate. I called up the T-mobile customer care and they had no clue why the account was suspended. The only answer I got was a fraud has been detected and there is some discrepancy on your account. I was asked to fax my ID and SSN card from a T-mobile authorized dealer. FAX!!! It is the 21st century and who uses fax anymore? Also, I don’t carry my SSN card on me at all times. A warning or heads-up would have helped here.",
       "I went to a store on 1212 El Camino Real, San Bruno and the person working there went over my account, couldn’t figure out what is going on and they told me they didn’t have a fax machine. I went to another T-mobile location in Tanforan mall, San Bruno. This time they had a fax machine but it was broken. I drove down to the south bay as I had to pick my ssn card anyways and went to a store on Brokaw Rd but alas no fax machine again. I was really frustrated because it had been almost 5 hours without service and driving to different T-mobile stores without GPS was another pain. Finally, I found a store in Rivermark Plaza, Santa Clara that had a working fax machine and were able to fax the documents.",
@@ -113,7 +121,8 @@ const migratedPosts = [
       "We were discussing where to travel during the thanksgiving break. We were already late for making reservations and given that it was November first week, most of the famous tourist destinations were either booked or super expensive. Four of my friends decided to fly over to Phoenix airport and then drive to Albuqurque White Sands national monument for the thanksgiving break. However, on looking up the state in tripadvisor, it seemed like there was not much to do apart from white sands and given that it would be freezing, camping or staying in tent was not in the option. While discussing other options, one of my friends suggested Yellowstone… again!",
       "We visited Yellowstone park in 2012 during our christmas break and it was an awesome trip. Instead of reminiscing about the trip, we decided let’s do the trip again. Most of the park stays closed for cleaning during thanksgiving break and only part open is a route between Gardiner, MT and Cooke City, MT that passes through Lamar valley. We called up the West Yellowstone snowmobile company we used the last time named Two Top snowmobile and they confirmed that the park didn’t allow for snowmobiles to go in either.",
       "Finally, the day of the trip arrived and I was super sick with cough and cold and it seemed at a point that I might not go on the trip but I was too thrilled to miss out on it. We went to pick up our car but the Avis at San Jose airport was out of AWD suv, the kind we needed to drive through the snow storm Cara fast approaching the northern US states. Moving around from counter to counter at the rental car centre, we finally got a nice AWD SUV with full coverage for ~500$ from Firefly rental. We started our drive to Yellowstone from San Jose at around 7 pm on 25th November and reached West Yellowstone at around 5 pm on the 26th. Do make sure to carry food with you as most of the places along the route stay closed for thanksgiving break. We grabbed lunch at an IHOP in Pocatello, ID and bought some snow tubes from Walmart there.",
-      "[Image: _DSC0062]The drive is a bit longer from West Yellowstone to Gardiner, MT because the internal road from within the park is shut off and that causes us to take a detour via Bozeman. We had booked a room at Super 8 motel in Gardiner, MT and checking in our stuff, we went right to the North entrance at around 10 PM. The weather had dropped to a chilly -9 degree F. However, we got to see a few Bisons and elks resting around a patch of river that had lukewarm water from the volcanic activity in the park. Tired and stank up from the long drive, we went back to the motel to relax.",
+      { "type": "image", "src": "/images/migrated/north-yellowstone-winter-2015/dsc0062.jpg", "alt": "_DSC0062" },
+      "The drive is a bit longer from West Yellowstone to Gardiner, MT because the internal road from within the park is shut off and that causes us to take a detour via Bozeman. We had booked a room at Super 8 motel in Gardiner, MT and checking in our stuff, we went right to the North entrance at around 10 PM. The weather had dropped to a chilly -9 degree F. However, we got to see a few Bisons and elks resting around a patch of river that had lukewarm water from the volcanic activity in the park. Tired and stank up from the long drive, we went back to the motel to relax.",
       "The next day we woke up and had a dip at the heated pool in the motel. They also serve a good breakfast of cereals, toast, yoghurt, coffee, apple and orange juice and boiled eggs. Many of the places in Gardiner close out early during winter and once you enter the park, it is difficult to find anything to eat unless you cross over the Cooke City.",
       "This slideshow requires JavaScript.",
       "Having had a good breakfast, we left the motel and stopped at mammoth hot springs first. It is a small spring of hot water that melts the snow and creates nice steam on its way down. There is a hike that takes you on top of the mountain to get a better view of the valley. We were able to catch a herd of deers on the park entrance itself. The whole area had received fresh snowfall and was covered in a white sheet! It is mesmerizing and beautiful to drive through the open road within the park. We drove through the Lamar Valley to witness huge bisons just eating through the snow, Elks and deers stopping on the warm street and the hordes of scientists and tourists trying to figure where the wolves are at. Yellowstone has several packs of wolves and many people visit the park in winter to take a class on the habits of wolves. We met with a couple from Ireland who showed us how to setup our tripod and shared information with us to visit the park early at around 7 AM the next day to witness packs of wolves in the valley.",
@@ -155,7 +164,7 @@ const migratedPosts = [
     ],
     "excerpt": "The Cast As in all Sooraj Barjatya directed movies, there is a huge starcast here. The primary stars are Salman Khan in double role, Sonam Kapoor, Deepak Dobriyal, Anupam Kher, Armaan…",
     "body": [
-      "[Image: Prem Ratan Dhan Payo]",
+      { "type": "image", "src": "/images/migrated/prem-ratan-dhan-payo-maine-sardard-payo/prem-ratan-dhan-payo.jpg", "alt": "Prem Ratan Dhan Payo" },
       "Prem Ratan Dhan Payo",
       {
         "type": "heading",
@@ -259,7 +268,7 @@ const migratedPosts = [
     ],
     "excerpt": "THE CAST Spy is a movie directed by Paul Feig and stars Melissa McCarthy, Jason Statham, Jude Law, Rose Byrne, Miranda Hart, Allison Janney and Bobby Cannavale in prominent roles. It…",
     "body": [
-      "[Image: Spy (2015)]",
+      { "type": "image", "src": "/images/migrated/the-spy-movie-review/spy-2015.jpg", "alt": "Spy (2015)" },
       "Spy Movie poster",
       {
         "type": "heading",

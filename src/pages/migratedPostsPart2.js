@@ -9,7 +9,7 @@ const migratedPosts = [
     ],
     "excerpt": "I moved to San Jose last year from San Francisco but my workplace is still located in San Bruno. This means driving about 35 miles one way on US-101 or 44 miles on 280. I guess taking…",
     "body": [
-      "[Image: The new car!]",
+      { "type": "image", "src": "/images/migrated/toyota-prius-my-new-car/new-car.jpg", "alt": "The new car!" },
       "The Toyota Prius 2015!",
       "I moved to San Jose last year from San Francisco but my workplace is still located in San Bruno. This means driving about 35 miles one way on US-101 or 44 miles on 280. I guess taking the train would have been one option but that is a bit inconvenient as the station is 5 miles from my place. I have to pay for parking and monthly pass which adds up to a large number. Finally, after driving my Altima Coupe for almost a year on the long traffic filled roads of the bay area, I decided it was time to get a car that is efficient and economical.",
       "I hated the Prius to be honest. With all the bad name that it has accumulated over the years, I never thought I will end up buying one. However, when my colleague got a Prius and I noticed that it gave a mileage of 55-60 MPG I could not resist buying one. I am in my 30s and hence I can afford buying a Prius (In my 20s, I would’ve made fun of someone driving the stupid car!!). I have driven about 1000 miles in the first week since I bought it and am listing my experience with driving the car below.",
@@ -168,7 +168,7 @@ const migratedPosts = [
     ],
     "excerpt": "The Cast Dhoom 3 is directed by Vijay Krishna Acharya unlike the first two films in the franchise. Cast lineup includes Aamir Khan, Katrina Kaif, Abhishek Bachchan, Uday Chopra, Jackie…",
     "body": [
-      "[Image: Dhoom 3 Poster]",
+      { "type": "image", "src": "/images/migrated/dhoom-3-review/dhoom-3.jpg", "alt": "Dhoom 3 Poster" },
       "Dhoom 3",
       {
         "type": "heading",

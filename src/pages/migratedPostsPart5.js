@@ -39,7 +39,7 @@ const migratedPosts = [
         "text": "Heavenly Ski Resort Gondola"
       },
       "This was the highlight of the trip and if you are into skiing or snowboarding I highly recommend this if you are in the bay area. The ticket costs 36$ for a person round-trip from base to the peak. They have built a mid-level observation deck where you can take pictures with the lake and snow peaked mountains in the background.",
-      "[Image: Heavenly Gondola Observation Deck]",
+      { "type": "image", "src": "/images/migrated/south-lake-tahoe/heavenly-gondola.jpg", "alt": "Heavenly Gondola Observation Deck" },
       "View from the Observation Deck at Heavenly Gondola ride",
       "At the top, there is a small restaurant serving food and hot beverages and tonnes of stuff to do in snow. There are also classes for learning how to ski and the funny thing was on one side was entry to state of Nevada and on the other you have California. So you may start to ski in Nevada and end up in California or the other way round."
     ]
@@ -54,7 +54,7 @@ const migratedPosts = [
     ],
     "excerpt": "The Cast Life of Pi is a movie directed by Ang Lee (Maker of Brokeback mountain and Crouching Tiger, Hidden Dragon) and stars Irrfan Khan, Tabu, Suraj Sharma and Adil Hussain in the main…",
     "body": [
-      "[Image: The life of Pi]",
+      { "type": "image", "src": "/images/migrated/life-of-pi-or-life-of-pi-and-tiger/life-of-pi.jpg", "alt": "The life of Pi" },
       "The life of Pi",
       {
         "type": "heading",
@@ -86,7 +86,7 @@ const migratedPosts = [
     ],
     "excerpt": "McDonald’s: Brief History McDonald’s began operations in the year 1940 and was established by brothers Richard and Maurice McDonald in California. It was the first true fast food joint…",
     "body": [
-      "[Image: McD]",
+      { "type": "image", "src": "/images/migrated/mcdonalds-im-hatin-it/mcdonalds.jpg", "alt": "McD" },
       "What it should actually read below the Golden Arch",
       "McDonald’s: Brief History",
       "McDonald’s began operations in the year 1940 and was established by brothers Richard and Maurice McDonald in California. It was the first true fast food joint where burgers and fries were produced fairly quickly and at a cheap price for customers to grab’n’go without wait. The business expanded tremendously and today McDonalds can be found in 119 countries around the world with some of these countries having their own elaborate McD menus.",
@@ -169,7 +169,7 @@ const migratedPosts = [
     ],
     "excerpt": "RIM (Research In Motion), was founded in 1984 and is headquartered in Waterloo, Canada. It pioneered in the development of many technological advancements but it’s success soared with…",
     "body": [
-      "[Image: Image]",
+      { "type": "image", "src": "/images/migrated/the-sad-demise-of-blackberry/blackberry.jpg", "alt": "Image" },
       "RIM (Research In Motion), was founded in 1984 and is headquartered in Waterloo, Canada. It pioneered in the development of many technological advancements but it’s success soared with the launch of Blackberry in 1999. These were smartphones that revolutionized the corporate culture and there was a time that you could identify any corporate executive by checking if he carried the BB device or not. These devices provided the highest level of security and enabling the user to send-receive push email and instant messages with other devices. The company garnered market share based on these one business of emailing!!",
       "Blackberries were driven by innovation but they took their success for granted. Their innovation stopped and they went from driving the competition to just enjoying their success. Gradually, devices like Apple iPhone rolled out which provided better interface and were easier to use for everybody. Android launched their cellphones along the same time causing corporations to switch to iPhone or Android driven workspace. Blackberry also rolled out their new OS around this time but they were late in the market and the BBs didn’t provide any advantage except for security.",
       "Then in 2010-2011, the blackberry network faces outages of service that lasted days for some individual users. The few drawbacks that I see in Blackberry are higher costing data plan for network usage, the requirement of BB network to access emails, data, etc and no major improvements over their past OS. BBM has been copied and in use as iMessage. The last major update to Blackberry came in 2011 with their OS7 rolling out and then they have only offered rumors. No new devices, no new OS, the launch of the new OS keeps getting pushed to a later date. Their tablet was a joke to even the most loyal fans of the company.",
@@ -187,7 +187,7 @@ const migratedPosts = [
     ],
     "excerpt": "July 19th, 2012 6:15 PM: We entered the Century theatres cinema hall to watch the marathon for Dark Knight. With our unlimited popcorn and soda on one side, the epic marathon began. The…",
     "body": [
-      "[Image: Before Dark knight marathon]",
+      { "type": "image", "src": "/images/migrated/did-the-dark-knight-rise/before-marathon.jpg", "alt": "Before Dark knight marathon" },
       "Before Dark knight marathon",
       "July 19th, 2012 6:15 PM: We entered the Century theatres cinema hall to watch the marathon for Dark Knight. With our unlimited popcorn and soda on one side, the epic marathon began. The first movie was the Batman Begins. The birth of the knight, his metamorphosis into this powerful individual and the conclusion with him turning into the vigilante of Gotham city are portrayed beautifully. Some epic moments according to me in Batman Begins were when Christian Bale makes his journey to the top of a scenic Bhutanese mountain to see Ra’s al Ghul, Bale standing up for the first time to face his fear of bats in the small dark cave, the confrontation between Neeson and Bale in the shrine before Bale burns it down and escapes. Even scarecrow had this menacing look on his face when he was on screen and he was a fitting enemy for a Batman that was still evolving and learning the tricks of the trade. The background tracks are one of the best works by Hans Zimmer and James Newton Howard. It has a perfect cast with Morgan Freeman, Gary Oldman and Michael Caine providing the support tools for Batman emotionally or technologically. Katie Holmes (who for some reason only moves the left part of her lips while speaking) is cute and does her small role convincingly. Liam Neeson is flawless in the dark role that he portrays and his banter with Batman is truly thrill to watch. Finally, Christian Bale seems tailor made for the role and it is difficult to imagine some one else portray the role with the charm and charisma that Bale has. Amazing Sequence and the movie gets ‘A’ grade from me.",
       "Then came The Dark Knight… The film that I loved so much that I bought tickets again and again to see the movie. Watching it after 4 years again was awesome. It was more a Joker film than Dark Knight movie. Heath Ledger simply changed the way Joker was portrayed earlier in batman movies. His jokes are subtle, his dialogues scary, he is the perfect arch nemesis for the Knight. 2-face Harvey Dent uses some good CGI to show his burnt face and Aaron Eckhart gives a cool performance as well, keeping up with Christian Bale and Heath Ledger. This movie has so many epic scenes that it is difficult to list them all… The full movie is grand, terrifying and mind blowing. All joker scenes, the bank robbery, the death of Rachel, the scenes when Dent is being transported to another prison and the scuffle that ensues between all portrayed so well. Also, in this movie we get to see BatPod (Bat Motorcycle), Tumblr (BatMobile) and its awesome powers. Batpod rests within the Bat Mobile and is used to eject in case the mobile has taken severe damage. I just love the BatPod!! Nolan and his team deserve accolades just for the portrayal of these awesome automobiles. Once again, I don’t have enough words to praise this movie and it gets ‘A++++++++++++++++++++++’ rating from me.",
@@ -211,7 +211,7 @@ const migratedPosts = [
       "I just purchased the Dark Knight Marathon tickets!!! I am so thankful to Nidhi for supporting my iditic craze about movies and agreeing to be a part of it as well. It is going to be real fun watching the joker again on screen. I am looking forward to the 455 minutes of fun with Arjav Dave and Nidhi. The first reviews of the Dark Knight Rises are already out applauding the finale to the greatest batman portrayal of our time… I just hope that someone else doesn’t mess it up like they do with successful franchises like LOTR or spiderman… I mean the spiderman series was spectacular but was there a need to come up with The amazing spiderman?? The Lord of the Rings also was dragged beyond the franchise with the story of gollum.",
       "I still remember when The Dark Knight released, I was still in college and I’d skip lunch so that I can save money to go and watch the movie in IMAX getting a rental car. I watched it 2-3 times on the normal screen but was fascinated as to how it’d look on the huge IMAX screen. Finally, after about month of waiting a friend of mine, Akash Puthran, drove me to the nearest IMAX screen which was about 25 miles from my place. I’ve watched that movie about 5 times in theatres, spending 8 to 16$ but that one time of watching it on the IMAX screen after waiting for so long was the best Dark Knight time I had… Thanks Akash for the fun!!",
       "I hope that no one messes with the Dark knight series and if they do decide to make more films on batman, Christopher Nolan takes the realms again. But for today, I am gonna fill my mouth with popcorn and drink loads of soda having fun reliving the experience of watching Dark Knight for one final time 🙂 If I get time I will write a review about the movie tonight!",
-      "[Image: The Dark Knight Rises]",
+      { "type": "image", "src": "/images/migrated/the-dark-knight-rises/dark-knight-rises.jpg", "alt": "The Dark Knight Rises" },
       "The Dark Knight Rises"
     ]
   },
