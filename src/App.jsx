@@ -1,14 +1,26 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Utilities from './pages/Utilities';
 import Blog from './pages/Blog';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
 <Router>
 <div className="App">
+      <ScrollToTop />
       <header className="App-header">
         <nav className="App-nav">
           <Link to="/resume" className="App-nav-link">Resume</Link>

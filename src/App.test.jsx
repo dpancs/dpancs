@@ -8,10 +8,12 @@ function navigateTo(path) {
 
 beforeEach(() => {
   navigateTo('/resume');
+  vi.stubGlobal('scrollTo', vi.fn());
 });
 
 afterEach(() => {
   navigateTo('/');
+  vi.unstubAllGlobals();
 });
 
 test('renders linkedin link', () => {
@@ -75,6 +77,14 @@ test('renders the blog post matching the slug route', () => {
   expect(
     screen.getByRole('heading', { name: /why games expire: consumer rights in gaming/i }),
   ).toBeInTheDocument();
+});
+
+test('scrolls to the top when opening a blog post', () => {
+  navigateTo('/blog/why-games-expire-consumer-rights-in-gaming');
+
+  render(<App />);
+
+  expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
 });
 
 test('sets a post-specific document title on the blog post route', () => {
