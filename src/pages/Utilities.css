@@ -34,6 +34,60 @@
   background: #f8fafc;
 }
 
+.image-tool {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 18px;
+  background: #f8fafc;
+}
+
+.utility-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.file-picker {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #111827, #334155);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.compression-status {
+  display: block;
+  min-height: 1.25rem;
+  margin-top: 0.75rem;
+  color: #5378a6;
+  font-size: 0.85rem;
+}
+
+.image-tool > button {
+  margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: white;
+  color: #1e3a5f;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
 .uuid-tool-heading {
   display: flex;
   align-items: start;

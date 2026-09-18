@@ -69,6 +69,15 @@ test('copies the generated UUID from the utilities route', async () => {
   expect(writeText).toHaveBeenCalledWith(output.textContent);
 });
 
+test('renders the lossless image compressor on the utilities route', () => {
+  navigateTo('/utilities');
+
+  render(<App />);
+
+  expect(screen.getByText(/lossless image compressor/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/choose png or svg/i)).toBeInTheDocument();
+});
+
 test('renders the blog post matching the slug route', () => {
   navigateTo('/blog/why-games-expire-consumer-rights-in-gaming');
 
