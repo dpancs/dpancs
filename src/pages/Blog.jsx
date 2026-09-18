@@ -1,12 +1,18 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import './Blog.css';
 import { SITE, toIsoDate, useSeo } from '../seo';
+import migratedPostsPart1 from './migratedPostsPart1';
+import migratedPostsPart2 from './migratedPostsPart2';
+import migratedPostsPart3 from './migratedPostsPart3';
+import migratedPostsPart4 from './migratedPostsPart4';
+import migratedPostsPart5 from './migratedPostsPart5';
+import migratedPostsPart6 from './migratedPostsPart6';
 
 // Add migrated posts here. Keeping posts as data makes it easy to paste in
 // the remaining WordPress archive without changing the page layout.
 // When adding a post, also add its URL to public/sitemap.xml.
-export const posts = [
+const originalPosts = [
   {
     slug: 'why-games-expire-consumer-rights-in-gaming',
     title: 'Why Games Expire: Consumer Rights in Gaming',
@@ -232,6 +238,16 @@ export const posts = [
   },
 ];
 
+export const posts = [
+  ...originalPosts,
+  ...migratedPostsPart1,
+  ...migratedPostsPart2,
+  ...migratedPostsPart3,
+  ...migratedPostsPart4,
+  ...migratedPostsPart5,
+  ...migratedPostsPart6,
+];
+
 const categories = ['All', ...new Set(posts.map((post) => post.category))];
 
 function BlogIndex() {
@@ -255,15 +271,12 @@ function BlogIndex() {
     },
   });
 
-  const filteredPosts = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
-
-    return posts.filter((post) => {
-      const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
-      const searchableText = `${post.title} ${post.excerpt} ${post.tags.join(' ')}`.toLowerCase();
-      return matchesCategory && (!normalizedQuery || searchableText.includes(normalizedQuery));
-    });
-  }, [activeCategory, query]);
+  const normalizedQuery = query.trim().toLowerCase();
+  const filteredPosts = posts.filter((post) => {
+    const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
+    const searchableText = `${post.title} ${post.excerpt} ${post.tags.join(' ')}`.toLowerCase();
+    return matchesCategory && (!normalizedQuery || searchableText.includes(normalizedQuery));
+  });
 
   const featuredPost = posts[0];
 

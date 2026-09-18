@@ -1,32 +1,14 @@
 import { useState } from 'react';
 import './Utilities.css';
-import { SITE, useSeo } from '../seo';
+import { useSeo } from '../seo';
 
 function createUuidV4() {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
-    return crypto.randomUUID();
-  }
-
-  const bytes = new Uint8Array(16);
-  if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues === 'function') {
-    crypto.getRandomValues(bytes);
-  } else {
-    for (let index = 0; index < bytes.length; index += 1) {
-      bytes[index] = Math.floor(Math.random() * 256);
-    }
-  }
-
-  bytes[6] = (bytes[6] & 0x0f) | 0x40;
-  bytes[8] = (bytes[8] & 0x3f) | 0x80;
-
-  return [...bytes]
-    .map((byte) => byte.toString(16).padStart(2, '0'))
-    .join('')
-    .replace(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/, '$1-$2-$3-$4-$5');
+  return crypto.randomUUID();
 }
 
 function Utilities() {
   const [uuid, setUuid] = useState('');
+  const [copied, setCopied] = useState(false);
   useSeo({
     title: 'UUID Generator & Developer Utilities | Deep Pancholi',
     description:
@@ -52,13 +34,48 @@ function Utilities() {
             <span className="uuid-version">v4</span>
           </div>
 
-          <button type="button" onClick={() => setUuid(createUuidV4())}>
+          <button
+            type="button"
+            onClick={() => {
+              setUuid(createUuidV4());
+              setCopied(false);
+            }}
+          >
             Generate UUID
           </button>
 
-          <output className="uuid-output" aria-live="polite" aria-label="Generated UUID">
-            {uuid || 'Your UUID will appear here'}
-          </output>
+          <div className="uuid-output-row">
+            <output className="uuid-output" aria-live="polite" aria-label="Generated UUID">
+              {uuid || 'Your UUID will appear here'}
+            </output>
+            <button
+              className="copy-button"
+              type="button"
+              aria-label="Copy generated UUID"
+              title="Copy generated UUID"
+              disabled={!uuid}
+              onClick={async () => {
+                await navigator.clipboard.writeText(uuid);
+                setCopied(true);
+              }}
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect width="13" height="13" x="9" y="9" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+            </button>
+          </div>
+          <span className="copy-status" aria-live="polite">
+            {copied ? 'Copied' : ''}
+          </span>
         </div>
       </section>
     </main>

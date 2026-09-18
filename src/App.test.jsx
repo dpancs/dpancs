@@ -1,6 +1,5 @@
-import { beforeEach, afterEach, test, expect } from 'vitest';
+import { beforeEach, afterEach, test, expect, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'; // Generates the .toBeInTheDocument helper
 import App from './App';
 
 function navigateTo(path) {
@@ -52,6 +51,20 @@ test('generates a UUID v4 on the utilities route', async () => {
   expect(output.textContent).toMatch(
     /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
   );
+});
+
+test('copies the generated UUID from the utilities route', async () => {
+  navigateTo('/utilities');
+
+  const writeText = vi.fn().mockResolvedValue(undefined);
+  Object.assign(navigator, { clipboard: { writeText } });
+  render(<App />);
+
+  fireEvent.click(screen.getByRole('button', { name: /generate uuid/i }));
+  const output = screen.getByRole('status', { name: /generated uuid/i });
+  fireEvent.click(screen.getByRole('button', { name: /copy generated uuid/i }));
+
+  expect(writeText).toHaveBeenCalledWith(output.textContent);
 });
 
 test('renders the blog post matching the slug route', () => {

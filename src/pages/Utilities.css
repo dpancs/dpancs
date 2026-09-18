@@ -63,7 +63,7 @@
   font-weight: 700;
 }
 
-.uuid-tool button {
+.uuid-tool > button {
   margin-top: 1.5rem;
   padding: 0.85rem 1.25rem;
   border: 0;
@@ -76,27 +76,80 @@
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
-.uuid-tool button:hover {
+.uuid-tool > button:hover {
   transform: translateY(-1px);
   box-shadow: 0 12px 24px rgba(17, 24, 39, 0.18);
 }
 
-.uuid-tool button:focus-visible {
+.uuid-tool > button:focus-visible {
   outline: 3px solid rgba(83, 120, 166, 0.35);
   outline-offset: 3px;
+}
+
+.uuid-output-row {
+  position: relative;
+  margin-top: 1.25rem;
 }
 
 .uuid-output {
   display: block;
   min-height: 1.5rem;
-  margin-top: 1.25rem;
-  padding: 0.9rem 1rem;
+  padding: 0.9rem 4rem 0.9rem 1rem;
   overflow-wrap: anywhere;
   border-radius: 10px;
   background: #fff;
   color: #1e3a5f;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.95rem;
+}
+
+.copy-button {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0.55rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.copy-button:hover:not(:disabled) {
+  background: #eef3f8;
+  color: #1e3a5f;
+}
+
+.copy-button:disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.copy-button:focus-visible {
+  outline: 3px solid rgba(83, 120, 166, 0.28);
+  outline-offset: 1px;
+}
+
+.copy-button svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.copy-status {
+  display: block;
+  min-height: 1.25rem;
+  margin-top: 0.45rem;
+  color: #5378a6;
+  font-size: 0.85rem;
+  text-align: right;
 }
 
 @media (max-width: 520px) {

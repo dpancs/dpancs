@@ -1,5 +1,5 @@
 import './Resume.css';
-import { SITE, useSeo } from '../seo';
+import { useSeo } from '../seo';
 
 const experience = [
   {

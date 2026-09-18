@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Contact.css';
-import { SITE, useSeo } from '../seo';
+import { useSeo } from '../seo';
 export default function Contact() {
   useSeo({
     title: 'Contact | Deep Pancholi',
