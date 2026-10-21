@@ -257,7 +257,7 @@ export const posts = [
   ...migratedPostsPart4,
   ...migratedPostsPart5,
   ...migratedPostsPart6,
-];
+].sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const categories = ['All', ...new Set(posts.map((post) => post.category))];
 
