@@ -27,6 +27,20 @@ test('renders Resume link', () => {
   expect(screen.getByRole('link', { name: /Resume/i })).toBeInTheDocument();
 });
 
+test('renders the RSVP form on the RSVP route', () => {
+  navigateTo('/rsvp');
+
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: /rsvp/i })).toBeInTheDocument();
+  expect(screen.queryByRole('link', { name: /rsvp/i })).not.toBeInTheDocument();
+  expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
+  expect(screen.getByTitle('RSVP form')).toHaveAttribute(
+    'src',
+    'https://docs.google.com/forms/d/e/1FAIpQLSdjZAPktskcO5IHmfwUa8hLsnXMmQKDVrkGEojx9g62h9Q7WQ/viewform?embedded=true',
+  );
+});
+
 test('renders the contact page form fields on the contact route', () => {
   navigateTo('/contact');
 
