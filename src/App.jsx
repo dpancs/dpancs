@@ -5,7 +5,6 @@ import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Utilities from './pages/Utilities';
 import Blog from './pages/Blog';
-import RSVP from './pages/RSVP';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,10 +17,6 @@ function ScrollToTop() {
 }
 
 function Header() {
-  const { pathname } = useLocation();
-
-  if (pathname === '/rsvp') return null;
-
   return (
     <header className="App-header">
       <nav className="App-nav">
@@ -54,7 +49,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/utilities" element={<Utilities />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/rsvp" element={<RSVP />} />
         <Route path="/blog/:slug" element={<Blog />} />
       </Routes>
     </div>
