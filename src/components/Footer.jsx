@@ -16,11 +16,7 @@ function Footer() {
         >
           Twitter
         </a>
-        {/*
-          TODO(Deep): replace this placeholder email address with the
-          address you want in the footer.
-        */}
-        <a href="mailto:deep.pancholi@example.com">Email</a>
+        <a href="mailto:dpancholi@duck.com">Email</a>
       </nav>
       <p>© 2026 Deep Pancholi</p>
     </footer>

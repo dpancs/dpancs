@@ -8,9 +8,11 @@
 }
 
 .resume-hero {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 2rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
   margin-bottom: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--bg-alt), var(--card));
 }
 
 .resume-eyebrow {
@@ -51,13 +53,12 @@
 }
 
 .resume-section h2 {
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 1px solid var(--border);
   color: var(--text);
-  font-size: 1.05rem;
-  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
   margin: 0 0 1.5rem;
-  padding-bottom: 0.6rem;
-  text-transform: uppercase;
+  padding-bottom: 0.8rem;
 }
 
 .resume-section p {
@@ -71,17 +72,21 @@
 }
 
 .competency {
-  background: var(--bg-alt);
-  border-radius: 0.35rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
   color: var(--muted);
   font-size: 0.9rem;
-  padding: 0.7rem 0.9rem;
+  padding: 0.8rem 1rem;
 }
 
 .experience-item {
-  border-left: 2px solid var(--border);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  background: var(--card);
   margin-bottom: 2.25rem;
-  padding-left: 1.25rem;
+  padding: 1.5rem;
 }
 
 .experience-heading {
@@ -123,8 +128,16 @@
 
 .resume-columns {
   display: grid;
-  gap: 3rem;
+  gap: 1.25rem;
   grid-template-columns: 1fr 1.5fr;
+}
+
+.resume-columns .resume-section {
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
 }
 
 .plain-list {

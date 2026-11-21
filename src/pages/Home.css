@@ -30,25 +30,43 @@
   border-radius: 16px;
 }
 
-.home-hero-linkedin {
+.home-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.1rem;
+}
+
+.home-social-links a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-top: 1.25rem;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
   border-radius: 50%;
-  background: var(--accent);
-  color: var(--bg);
-  font-size: 1.05rem;
-  font-weight: 800;
+  background: var(--bg-alt);
+  color: var(--muted);
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
-.home-hero-linkedin:hover {
-  background: var(--accent-hover);
+.home-social-links a:hover,
+.home-social-links a:focus-visible {
+  background: var(--accent);
+  color: var(--bg);
   transform: translateY(-2px);
+}
+
+.home-social-links a:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 3px;
+}
+
+.home-social-links svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
 }
 
 .home-hero-text h1 {
@@ -249,6 +267,10 @@
   .home-hero-photo img {
     width: 200px;
     height: 200px;
+  }
+
+  .home-hero-photo {
+    align-self: center;
   }
 
   .home-highlight-grid {
