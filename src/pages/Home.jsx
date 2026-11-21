@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import profilePhoto from '../profilePhoto';
 import './Home.css';
 
 // TODO(Deep): edit these placeholder stats — values below come from the
@@ -50,7 +51,7 @@ function Home() {
     <main className="home-page">
       <section className="home-hero">
         <div className="home-hero-photo">
-          <img src="/profile.jpg" alt="Deep Pancholi" />
+          <img src={profilePhoto} alt="Deep Pancholi" />
           <a
             className="home-hero-linkedin"
             href="https://www.linkedin.com/in/deeppancholi/"
