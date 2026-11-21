@@ -1,30 +1,24 @@
 import './App.css';
-import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Utilities from './pages/Utilities';
 import Blog from './pages/Blog';
+import Footer from './components/Footer';
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
-
-function Header() {
+function App() {
   return (
-    <header className="App-header">
-      <nav className="App-nav">
-        <Link to="/resume" className="App-nav-link">Resume</Link>
-        <Link to="/contact" className="App-nav-link">Contact</Link>
-        <Link to="/utilities" className="App-nav-link">Utilities</Link>
-        <Link to="/blog" className="App-nav-link">Blog</Link>
-        <a
+<Router>
+<div className="App">
+      <header className="App-header">
+        <nav className="App-nav">
+          <Link to="/" className="App-nav-link">Home</Link>
+          <Link to="/resume" className="App-nav-link">Resume</Link>
+          <Link to="/blog" className="App-nav-link">Blog</Link>
+          <Link to="/utilities" className="App-nav-link">Utilities</Link>
+          <Link to="/contact" className="App-nav-link">Contact</Link>
+          <a
           className="App-nav-link"
           href="https://www.linkedin.com/in/deeppancholi/"
           target="_blank"
@@ -32,25 +26,17 @@ function Header() {
         >
           LinkedIn
         </a>
-      </nav>
-    </header>
-  );
-}
-
-function App() {
-  return (
-<Router>
-<div className="App">
-      <ScrollToTop />
-      <Header />
+        </nav>
+      </header>
       <Routes>
-        <Route path="/" element={<Blog />} />
+        <Route path="/" element={<Home />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/utilities" element={<Utilities />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<Blog />} />
       </Routes>
+      <Footer />
     </div>
     </Router>
   );

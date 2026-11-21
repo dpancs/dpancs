@@ -15,10 +15,10 @@
 .contact-card {
   width: min(100%, 560px);
   padding: 2rem;
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  border: 1px solid var(--border);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.08);
+  background: var(--card);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
 }
 
 .contact-card h1 {
@@ -36,18 +36,18 @@
   margin-top: 0.25rem;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text);
 }
 
 .contact-card input,
 .contact-card textarea {
   width: 100%;
   padding: 0.9rem 1rem;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border);
   border-radius: 12px;
-  background: #fff;
+  background: var(--bg);
   font: inherit;
-  color: #0f172a;
+  color: var(--text);
   transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }
 
@@ -58,14 +58,14 @@
 
 .contact-card input::placeholder,
 .contact-card textarea::placeholder {
-  color: #94a3b8;
+  color: var(--muted-2);
 }
 
 .contact-card input:focus,
 .contact-card textarea:focus {
   outline: none;
-  border-color: #5378a6;
-  box-shadow: 0 0 0 4px rgba(83, 120, 166, 0.16);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .contact-card button {
@@ -74,17 +74,18 @@
   padding: 0.9rem 1.5rem;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, #111827, #334155);
-  color: white;
+  background: var(--accent);
+  color: var(--bg);
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.01em;
-  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
 }
 
 .contact-card button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(17, 24, 39, 0.18);
+  background: var(--accent-hover);
+  box-shadow: 0 12px 24px rgba(255, 111, 97, 0.25);
 }
 
 .contact-card button:active {
@@ -94,8 +95,8 @@
 .contact-success {
   padding: 1.25rem 1.25rem 1rem;
   border-radius: 16px;
-  background: rgba(83, 120, 166, 0.1);
-  color: #1e3a5f;
+  background: var(--accent-soft);
+  color: var(--text);
 }
 
 .contact-success h3 {
@@ -107,7 +108,7 @@
 }
 
 .resume-eyebrow {
-  color: #5378a6;
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;

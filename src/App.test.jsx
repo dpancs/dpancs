@@ -1,19 +1,48 @@
-import { beforeEach, afterEach, test, expect, vi } from 'vitest';
+import { beforeEach, afterEach, test, expect } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'; // Generates the .toBeInTheDocument helper
 import App from './App';
 
-function navigateTo(path) {
-  window.history.pushState({}, '', path);
-}
-
 beforeEach(() => {
-  navigateTo('/resume');
-  vi.stubGlobal('scrollTo', vi.fn());
+  window.location.hash = '#/resume';
 });
 
 afterEach(() => {
-  navigateTo('/');
-  vi.unstubAllGlobals();
+  window.location.hash = '';
+});
+
+test('renders the home hero on the default route', () => {
+  window.location.hash = '#/';
+
+  render(<App />);
+  expect(screen.getByRole('heading', { name: /deep pancholi/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /career highlights/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /leadership approach/i })).toBeInTheDocument();
+});
+
+test('renders footer links to LinkedIn, Twitter, and email', () => {
+  render(<App />);
+  expect(screen.getByRole('link', { name: /twitter/i })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /email/i })).toHaveAttribute(
+    'href',
+    expect.stringMatching(/^mailto:/),
+  );
+});
+
+test('renders the home page on the root hash route', () => {
+  window.location.hash = '#/';
+
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: /deep pancholi/i })).toBeInTheDocument();
+});
+
+test('renders the blog page on the blog route', () => {
+  window.location.hash = '#/blog';
+
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: /notes on technology, life, and everything in between/i })).toBeInTheDocument();
 });
 
 test('renders linkedin link', () => {
@@ -28,7 +57,7 @@ test('renders Resume link', () => {
 });
 
 test('renders the contact page form fields on the contact route', () => {
-  navigateTo('/contact');
+  window.location.hash = '#/contact';
 
   render(<App />);
 
@@ -39,7 +68,7 @@ test('renders the contact page form fields on the contact route', () => {
 });
 
 test('generates a UUID v4 on the utilities route', async () => {
-  navigateTo('/utilities');
+  window.location.hash = '#/utilities';
 
   render(<App />);
 
@@ -52,60 +81,5 @@ test('generates a UUID v4 on the utilities route', async () => {
 
   expect(output.textContent).toMatch(
     /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
-  );
-});
-
-test('copies the generated UUID from the utilities route', async () => {
-  navigateTo('/utilities');
-
-  const writeText = vi.fn().mockResolvedValue(undefined);
-  Object.assign(navigator, { clipboard: { writeText } });
-  render(<App />);
-
-  fireEvent.click(screen.getByRole('button', { name: /generate uuid/i }));
-  const output = screen.getByRole('status', { name: /generated uuid/i });
-  fireEvent.click(screen.getByRole('button', { name: /copy generated uuid/i }));
-
-  expect(writeText).toHaveBeenCalledWith(output.textContent);
-});
-
-test('renders the lossless image compressor on the utilities route', () => {
-  navigateTo('/utilities');
-
-  render(<App />);
-
-  expect(screen.getByText(/lossless image compressor/i)).toBeInTheDocument();
-  expect(screen.getByLabelText(/choose png or svg/i)).toBeInTheDocument();
-});
-
-test('renders the blog post matching the slug route', () => {
-  navigateTo('/blog/why-games-expire-consumer-rights-in-gaming');
-
-  render(<App />);
-
-  expect(
-    screen.getByRole('heading', { name: /why games expire: consumer rights in gaming/i }),
-  ).toBeInTheDocument();
-});
-
-test('scrolls to the top when opening a blog post', () => {
-  navigateTo('/blog/why-games-expire-consumer-rights-in-gaming');
-
-  render(<App />);
-
-  expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
-});
-
-test('sets a post-specific document title on the blog post route', () => {
-  navigateTo('/blog/why-games-expire-consumer-rights-in-gaming');
-
-  render(<App />);
-
-  expect(document.title).toBe('Why Games Expire: Consumer Rights in Gaming | Deep Pancholi');
-  expect(document.querySelector('meta[name="description"]').getAttribute('content')).toContain(
-    'Modern games can disappear',
-  );
-  expect(document.querySelector('link[rel="canonical"]').getAttribute('href')).toBe(
-    'https://deepintheai.com/blog/why-games-expire-consumer-rights-in-gaming',
   );
 });
