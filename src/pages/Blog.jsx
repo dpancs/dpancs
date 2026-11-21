@@ -266,12 +266,10 @@ function BlogIndex() {
   const [query, setQuery] = useState('');
   const { pathname } = useLocation();
 
-  // / and /blog render the same archive; canonicalize /blog to the homepage.
-  const canonicalPath = pathname === '/blog' ? '/' : pathname;
   useSeo({
     title: 'Deep Pancholi — Notes on technology, engineering, and life',
     description: SITE.description,
-    path: canonicalPath,
+    path: pathname,
     schema: {
       '@context': 'https://schema.org',
       '@type': 'Blog',

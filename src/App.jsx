@@ -1,10 +1,12 @@
 import './App.css';
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Utilities from './pages/Utilities';
 import Blog from './pages/Blog';
+import Footer from './components/Footer';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -16,42 +18,30 @@ function ScrollToTop() {
   return null;
 }
 
-function Header() {
-  return (
-    <header className="App-header">
-      <nav className="App-nav">
-        <Link to="/resume" className="App-nav-link">Resume</Link>
-        <Link to="/contact" className="App-nav-link">Contact</Link>
-        <Link to="/utilities" className="App-nav-link">Utilities</Link>
-        <Link to="/blog" className="App-nav-link">Blog</Link>
-        <a
-          className="App-nav-link"
-          href="https://www.linkedin.com/in/deeppancholi/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
-      </nav>
-    </header>
-  );
-}
-
 function App() {
   return (
-<Router>
-<div className="App">
-      <ScrollToTop />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Blog />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/utilities" element={<Utilities />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<Blog />} />
-      </Routes>
-    </div>
+    <Router>
+      <div className="App">
+        <ScrollToTop />
+        <header className="App-header">
+          <nav className="App-nav" aria-label="Main navigation">
+            <NavLink to="/" end>Home</NavLink>
+            <NavLink to="/resume">Resume</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/utilities">Utilities</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+          </nav>
+        </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/utilities" element={<Utilities />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<Blog />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   );
 }

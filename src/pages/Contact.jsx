@@ -35,53 +35,64 @@ export default function Contact() {
       ></iframe>
 
       {/* 2. Conditional Rendering: Show Success Message OR Form */}
-      <section className="contact-card">
-        <p className="resume-eyebrow">Get in touch</p>
-        <h1>Contact Me</h1>
+      <div className="contact-layout">
+        <div className="contact-intro">
+          <p className="resume-eyebrow">Get in touch</p>
+          <h1>Contact Me</h1>
+          <p>
+            Get in touch about technology, engineering, and life, or send a note
+            using the form.
+          </p>
+          <a className="contact-email" href="mailto:dpancholi@duck.com">
+            dpancholi@duck.com
+          </a>
+        </div>
 
-        {submitted ? (
-          <div className="contact-success">
-            <h3>Thank You!</h3>
-            <p>Your message has been sent successfully.</p>
-          </div>
-        ) : (
-          <form
-            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSevJuJCSvTrLSXWBIEx17YGUKqdEvdbZBbrKHws7mivh2qyCw/formResponse"
-            method="POST"
-            target="hidden_iframe"
-            onSubmit={handleSubmit}
-          >
-            <label htmlFor="subject">Subject</label>
-            <input
-              id="subject"
-              name="entry.266180534"
-              placeholder="Subject"
-              type="text"
-              required
-            />
+        <section className="contact-card" aria-label="Send a message">
+          {submitted ? (
+            <div className="contact-success" role="status">
+              <h2>Thank You!</h2>
+              <p>Your message has been sent successfully.</p>
+            </div>
+          ) : (
+            <form
+              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSevJuJCSvTrLSXWBIEx17YGUKqdEvdbZBbrKHws7mivh2qyCw/formResponse"
+              method="POST"
+              target="hidden_iframe"
+              onSubmit={handleSubmit}
+            >
+              <label htmlFor="subject">Subject</label>
+              <input
+                id="subject"
+                name="entry.266180534"
+                placeholder="Subject"
+                type="text"
+                required
+              />
 
-            <label htmlFor="body">Details</label>
-            <textarea
-              id="body"
-              name="entry.291798202"
-              rows="8"
-              placeholder="Add details here"
-              required
-            />
+              <label htmlFor="body">Details</label>
+              <textarea
+                id="body"
+                name="entry.291798202"
+                rows="8"
+                placeholder="Add details here"
+                required
+              />
 
-            <label htmlFor="contact">Your Contact Info</label>
-            <textarea
-              id="contact"
-              name="entry.1055822833"
-              rows="4"
-              placeholder="Please add your contact information like phone number and email address here"
-              required
-            />
+              <label htmlFor="contact">Your Contact Info</label>
+              <textarea
+                id="contact"
+                name="entry.1055822833"
+                rows="4"
+                placeholder="Please add your contact information like phone number and email address here"
+                required
+              />
 
-            <button type="submit">Submit</button>
-          </form>
-        )}
-      </section>
+              <button type="submit">Submit</button>
+            </form>
+          )}
+        </section>
+      </div>
     </main>
   );
 }
