@@ -95,7 +95,7 @@ function Utilities() {
   return (
     <main className="utilities-page">
       <section className="utilities-card">
-        <p className="resume-eyebrow">Handy tools</p>
+        <p className="utilities-eyebrow">Handy tools</p>
         <h1>Utilities</h1>
         <p className="utilities-intro">
           A few focused tools for everyday software engineering tasks.
